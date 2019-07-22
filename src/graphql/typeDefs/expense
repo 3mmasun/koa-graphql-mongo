@@ -1,0 +1,21 @@
+type Expense {
+    _id: ObjectId
+    name: String
+    description: String
+    amount: Float
+    createdAt: Date
+    createdBy: ObjectId
+    updatedAt: Date
+    updatedBy: ObjectId
+    
+    account: Account
+}
+
+extend type Query {
+    expense(_id: ObjectId, name: String, description: String, amount: Float): Expense
+    expenses: [Expense]
+}
+
+extend type Mutation {
+    addExpense(name: String!, description: String!, amount: Float!): Expense
+}
