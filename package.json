@@ -9,7 +9,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --watch src bin/run.js"
+    "dev": "nodemon --watch src bin/run.js",
+    "start:db": "docker start koa-apollo-mongo && docker ps",
+    "stop:db": "docker stop koa-apollo-mongo && docker ps"
   },
   "keywords": [],
   "author": "",

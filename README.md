@@ -1,7 +1,11 @@
 ## Docker with Mongo
-### Run Docker Containter
+### Creat Docker Containter
 ```
 docker run --name koa-apollo-mongo -d -p 27017:27017 mongo
+```
+### Start Docker Process
+```
+docker start koa-apollo-mongo
 ```
 ### Interacting with the MongoDB Docker Container
 ```
