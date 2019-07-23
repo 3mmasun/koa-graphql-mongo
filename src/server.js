@@ -1,23 +1,16 @@
 const Koa = require("koa");
-const Router = require("koa-router");
 
 const { ApolloServer, gql } = require("apollo-server-koa");
-const typeDefs = gql(require('./graphql/typeDefs'))
-const resolvers = require('./graphql/resolvers')
+const typeDefs = gql(require("./graphql/typeDefs"));
+const resolvers = require("./graphql/resolvers");
 
-const server = new ApolloServer({ typeDefs, resolvers });
+const db = require("./db");
+
 const app = new Koa();
-const db = require("./db")
+const path = "/mygraphql";
+const server = new ApolloServer({ typeDefs, resolvers });
 
-server.applyMiddleware({ app });
-
-const router = new Router();
-
-router.get("/", (ctx, next) => {
-  // ctx.router available
-});
-
-app.use(router.routes());
+server.applyMiddleware({ app , path });
 
 module.exports = {
   run: async port => {
