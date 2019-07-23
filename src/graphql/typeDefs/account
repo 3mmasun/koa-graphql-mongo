@@ -10,7 +10,7 @@ type Account {
 }
 
 extend type Query {
-    account(_id: String!): Account
+    account(name:String!): Account
     accounts: [Account]
 }
 

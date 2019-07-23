@@ -1,18 +1,18 @@
-const { Expense, Account } = require('../../schema')
+const { Expense, Account } = require("../../schema");
 
 module.exports = {
-   Query: {
-        accounts: (root, args, context, info) => {
-              return Account.find({})
-        },
-        account: (root, args) => {
-              return Account.findOne(args)
-        }
+  Query: {
+    expenses: (root, args, context, info) => {
+      return Expense.find({});
     },
-    Mutation: {
-         addAccount(_, args) {
-             let data = args
-             return Account.create(data)
-         }
+    expense: (root, args) => {
+      return Expense.findOne(args);
     }
-}
+  },
+  Mutation: {
+    addExpense(_, args) {
+      let data = args;
+      return Expense.create(data);
+    }
+  }
+};
